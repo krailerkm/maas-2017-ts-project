@@ -18,12 +18,54 @@ Keyword : OpenStack, Cloud Computing, Cloud Media Server, Auto-Scaling Software
 This software was part of Teshis when I was at university. Thank you to all who are interested.
 
 ## Installation
-Pre-Software Request for MAAS Controller
+Pre-Software Request for MAAS Controller 
+
+1. CentOS 7.2
+2. Python 2.7
+3. OpenStack Client & Software Development Kit
 
 ```
-CentOS 7.2
-Python 2.7
-OpenStack Client & Software Development Kit
+yum install epel-release
+yum install python-devel python-pip gcc
+
+pip install python-openstackclient
+
+pip install https://pypi.python.org/packages/b5/b9/249090e22e2c7c0aa640ac7d3cf154bbdd868b586939e1e7de520cff35cd/python-novaclient-7.0.0.tar.gz
+
+Name: python-openstackclient
+Version: 3.7.0
+pip install python-openstackclient
+pip install https://pypi.python.org/packages/28/50/902e4288d5aa87a291c0a771028b8db26e5c967fb1471022ef8e660562f8/python-openstackclient-3.7.0.tar.gz
+
+Name: python-keystoneclient
+Version: 3.9.0
+pip install python-keystoneclient
+pip install https://pypi.python.org/packages/a6/69/03a3121c0eb2017c44a41762e6c9671dc49006598f9502614f26563a158e/python-keystoneclient-3.9.0.tar.gz
+
+Name: python-glanceclient
+Version: 2.5.0
+pip install python-glanceclient
+pip install https://pypi.python.org/packages/93/4d/b8ddde77ed12292e376ea10b81b34ba87152b617416d028888de02022717/python-glanceclient-2.5.0.tar.gz
+
+Name: python-novaclient
+Version: 7.0.0
+pip install python-novaclient
+pip install https://pypi.python.org/packages/b5/b9/249090e22e2c7c0aa640ac7d3cf154bbdd868b586939e1e7de520cff35cd/python-novaclient-7.0.0.tar.gz
+
+Name: python-neutronclient
+Version: 6.0.0
+pip install python-neutronclient
+pip install https://pypi.python.org/packages/50/4d/b0b3b3bfd678a0b3e0ce16bbd539dab1e7718f98d53787efbd41083828fb/python-neutronclient-6.0.0.tar.gz
+
+Name: python-ceilometerclient
+Version: 2.7.0
+pip install python-ceilometerclient
+pip install https://pypi.python.org/packages/98/5e/ef6f026a9f5275e54800273ac4868bf50ab4c6b1cab299f2249f7978bd29/python-ceilometerclient-2.7.0.tar.gz
+
+Name: python-heatclient
+Version: 1.7.0
+pip install python-heatclient
+pip install https://pypi.python.org/packages/99/25/7252a5286c2669beda1a16f16abe02bbb31ee9e54de4c36ed79a75b5ae76/python-heatclient-1.7.0.tar.gz
 ```
 
 Install OpenStack Cluster ans MAAS
