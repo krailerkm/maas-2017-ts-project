@@ -26,6 +26,71 @@ Python 2.7
 OpenStack Client & Software Development Kit
 ```
 
+Install OpenStack Cluster ans MAAS
+```
+vi /etc/default/grub
+####################
+net.ifnames=0
+####################
+grub2-mkconfig -o /boot/grub2/grub.cfg
+reboot
+
+vi /etc/environment
+#####################
+LANG=en_US.utf-8
+LC_ALL=en_US.utf-8
+#####################
+reboot
+locale
+
+vi /etc/hosts
+#####################
+192.168.1.9	maas
+192.168.1.10    controller
+192.168.1.11	network
+192.168.1.12    compute1
+192.168.1.13    compute2
+192.168.1.14	compute3
+192.168.1.19	loadmaster
+192.168.1.20    load1
+192.168.1.21    load2
+192.168.1.22    load3
+192.168.1.236   media.local
+#####################
+
+yum -y install epel-release
+
+sudo systemctl disable firewalld
+sudo systemctl stop firewalld
+sudo systemctl disable NetworkManager
+sudo systemctl stop NetworkManager
+sudo systemctl enable network
+sudo systemctl restart network
+
+yum -y install chrony
+vi /etc/chrony.conf
+#####################
+server controller iburst
+
+allow 192.168.1.0/24
+#####################
+systemctl start chronyd
+systemctl enable chronyd
+
+systemctl restart chronyd
+chronyc sources
+
+sudo yum install -y centos-release-openstack-mitaka
+sudo yum update -y
+
+sudo yum install -y openstack-packstack
+sudo yum update -y
+
+packstack --default-password='passw0rd' --os-controller-host='192.168.1.10’ --os-network-hosts='192.168.1.11’ --os-compute-hosts='192.168.1.12,192.168.1.13,192.168.1.14' --provision-demo=y  --os-ceilometer-install='y' --os-heat-install='y' --os-neutron-lbaas-install='y' --os-neutron-ovs-bridge-mappings='extnet:br-ex' --os-neutron-ovs-bridge-interfaces='br-ex:eth0' --os-neutron-ml2-type-drivers='vxlan,flat'
+
+yum install -y java unzip
+```
+
 ## Contributing
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
 
