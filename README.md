@@ -1,3 +1,5 @@
+![](images/maas_logo_os_sm.png)
+
 ## MAAS v2017
 **PROPOSED APPROACH**
 The MASS software has been developed using Python 2.7 and OpenStack Mitaka. This software is an independent software that interface with OpenStack using OpenStack REST API. MASS communicate with Ceilometer to get the workload information. 
